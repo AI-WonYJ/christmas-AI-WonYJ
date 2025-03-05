@@ -7,6 +7,7 @@ from christmas.input_view import InputView
 from christmas.output_view import OutputView
 from christmas.event_planner import EventPlanner
 
+
 def main():
     """ 프로그램 시작 """
     print("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.")
