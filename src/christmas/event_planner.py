@@ -22,11 +22,13 @@ class EventPlanner:
         """총 주문 금액을 계산한다."""
         prices = {
             "양송이수프": 6000, "타파스": 5500, "시저샐러드": 8000,
-            "티본스테이크": 55000, "바비큐립": 54000, "해산물파스타": 35000, 
+            "티본스테이크": 55000, "바비큐립": 54000, "해산물파스타": 35000,
             "크리스마스파스타": 25000, "초코케이크": 15000, "아이스크림": 5000,
             "제로콜라": 3000, "레드와인": 60000, "샴페인": 25000
         }
-        return sum(prices[item] * quantity for item, quantity in self.order.items())
+        return sum(
+            prices[item] * quantity for item, quantity in self.order.items()
+        )
 
     def calculate_event(self):
         """모든 할인 및 증정 이벤트 적용 후 최종 결제 금액을 계산한다."""

@@ -2,6 +2,7 @@
 12월 이벤트 플래너 프로그램의 출력 기능.
 """
 
+
 class OutputView:
     """이벤트 결과를 출력하는 클래스"""
 
@@ -12,7 +13,7 @@ class OutputView:
 
         OutputView.print_order_menu(planner.order)
         OutputView.print_total_price(planner.total_price)
-        OutputView.print_gift_menu(planner.gift_included)  # gift → gift_included로 변경됨
+        OutputView.print_gift_menu(planner.gift_included)
         OutputView.print_benefits(planner.benefits)
         OutputView.print_total_benefits(planner.benefits)
         OutputView.print_final_price(planner.final_price)
