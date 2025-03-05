@@ -11,8 +11,9 @@ class InputView:
         """사용자가 방문할 날짜를 입력받는다. 1~31 사이의 숫자만 허용된다."""
         while True:
             try:
+                print("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)")
                 date = int(
-                    input("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)\n")
+                    input()
                 )
                 if 1 <= date <= 31:
                     return date
@@ -25,10 +26,10 @@ class InputView:
         """사용자가 주문할 메뉴와 개수를 입력받는다. 올바른 형식인지 검증 후 반환한다."""
         while True:
             try:
-                order_input = input(
+                print(
                     "주문하실 메뉴를 메뉴와 개수를 알려 주세요. "
-                    "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)\n"
-                )
+                    "(e.g. 해산물파스타-2,레드와인-1,초코케이크-1)")
+                order_input = input()
                 return InputView.validate_order(order_input)
             except ValueError as e:
                 print(e)
