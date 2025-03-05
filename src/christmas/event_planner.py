@@ -1,7 +1,10 @@
 from discount_calculator import DiscountCalculator
 
 class EventPlanner:
+    """ 이벤트 할인 및 주문을 관리하는 클래스 """
+
     def __init__(self, date, order):
+        """ 초기화: 방문 날짜, 주문 내역, 총 주문 금액, 할인 정보 설정 """
         self.date = date
         self.order = order
         self.total_price = self.calculate_total_price()
@@ -12,6 +15,7 @@ class EventPlanner:
         self.badge = ""
 
     def calculate_total_price(self):
+        """ 총 주문 금액을 계산한다. """
         prices = {
             "양송이수프": 6000, "타파스": 5500, "시저샐러드": 8000,
             "티본스테이크": 55000, "바비큐립": 54000, "해산물파스타": 35000, "크리스마스파스타": 25000,
@@ -21,6 +25,7 @@ class EventPlanner:
         return sum(prices[item] * quantity for item, quantity in self.order.items())
 
     def calculate_event(self):
+        """ 모든 할인 및 증정 이벤트 적용 후 최종 결제 금액을 계산한다. """
         discount = DiscountCalculator(self.date, self.order)
         self.benefits = discount.calculate_discounts()
         self.total_benefits = sum(self.benefits.values())
@@ -30,10 +35,11 @@ class EventPlanner:
         if self.total_price >= 120000:
             self.gift = True
             self.total_benefits += 25000
-            
+
         self.assign_badge()
 
     def assign_badge(self):
+        """ 총혜택 금액을 기준으로 이벤트 배지를 부여한다. """
         if self.total_benefits >= 20000:
             self.badge = "산타"
             return
