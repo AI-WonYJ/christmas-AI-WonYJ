@@ -2,8 +2,6 @@ from unittest.mock import patch
 from io import StringIO
 import os
 
-import pytest
-
 from christmas.main import main
 
 
