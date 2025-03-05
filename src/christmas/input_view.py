@@ -8,7 +8,7 @@ class InputView:
                     return date
                 raise ValueError
             except ValueError:
-                print("[ERROR] 유호하지 않은 날짜입니다. 다시 입력해 주세요.")
+                print("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.")
 
     @staticmethod
     def read_order():
@@ -32,7 +32,7 @@ class InputView:
 
         for item in items:
             InputView.validate_item_format(item)
-            name, quantity = item.split("-")
+            name, quantity = item.replace(" ","").split("-")
 
             InputView.validate_numeric_quantity(name, quantity)
             quantity = int(quantity)
@@ -51,8 +51,7 @@ class InputView:
     @staticmethod
     def validate_item_format(item):
         if "-" not in item:
-            raise ValueError("[ERROR] 유효하지 않은 주문 형식입니다. 다시 입력해 주세요.")
-
+            raise ValueError("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.")
     @staticmethod
     def validate_numeric_quantity(name, quantity):
         if not quantity.isdigit():
