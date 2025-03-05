@@ -2,6 +2,7 @@
 12월 이벤트 플래너 프로그램의 입력 기능.
 """
 
+
 class InputView:
     """사용자 입력을 처리하는 클래스"""
 
@@ -116,4 +117,3 @@ class InputView:
         """주문 개수가 20개 이하인지 확인한다."""
         if sum(order.values()) > 20:
             raise ValueError("[ERROR] 최대 20개까지만 주문할 수 있습니다. 다시 입력해 주세요.")
-
