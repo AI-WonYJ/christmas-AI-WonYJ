@@ -25,11 +25,12 @@ class EventPlanner:
         self.benefits = discount.calculate_discounts()
         self.total_benefits = sum(self.benefits.values())
 
+        self.final_price = self.total_price - self.total_benefits
+
         if self.total_price >= 120000:
             self.gift = True
             self.total_benefits += 25000
-
-        self.final_price = self.total_price - self.total_benefits
+            
         self.assign_badge()
 
     def assign_badge(self):
